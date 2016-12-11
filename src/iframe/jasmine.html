@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        window.addEventListener('message', function(event) {
+            var message = JSON.parse(event.data);
+            try {
+                window.eval(message.code);
+            } catch(e) {}
+            try {
+                window.eval(message.tests);
+            } catch(e) {}
+
+            window.htmlReporter.initialize();
+            window.env.execute();
+        });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine-html.js"></script>
+    <script type="text/javascript" src="./jasmineInit.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.css">
+</head>
+<body>
+</body>
+</html>
